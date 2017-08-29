@@ -1,3 +1,19 @@
 body {
     text-align: center;
 }
+
+.game-pad{
+ width:200px;
+position: relative;
+left:calc(50% - 60px);
+}
+
+.game-pad button{
+    margin:5px;
+}
+
+@media only screen and (min-width:1025px){
+    .game-pad{
+        display: none;
+    }
+} 

@@ -77,6 +77,37 @@ Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+Player.prototype.moblieInput = function(){
+    var up = document.querySelector("#up");
+    var down = document.querySelector("#down");
+    var left = document.querySelector("#left");
+    var right = document.querySelector("#right");
+    
+    up.addEventListener("click", function(){
+        if (this.y >= this.speed) {
+            this.y -= this.speed;
+            player.render();
+        }
+    });
+    down.addEventListener("click", function(){
+        if (this.y <= 450) {
+            this.y += this.speed;
+            player.render();
+        }
+    });
+    left.addEventListener("click", function(){
+        if (this.x >= this.speed) {
+            this.x -= this.speed;
+            player.render();
+        }
+    });
+    right.addEventListener("click", function(){
+        if (this.x <= 400) {
+            this.x += this.speed;
+            player.render();
+        }
+    });
+};
 // Input handler for player, required method for game
 Player.prototype.handleInput = function (fn) {
         if (fn == "right" && this.x <= 400) {
@@ -92,6 +123,7 @@ Player.prototype.handleInput = function (fn) {
             this.y += this.speed;
             player.render();
         }
+    Player.moblieInput();
     };
 
 // Now instantiate your objects.
@@ -109,7 +141,11 @@ document.addEventListener('keyup', function (e) {
         37: 'left',
         38: 'up',
         39: 'right',
-        40: 'down'
+        40: 'down',
+        65: 'left',
+        68: 'right',
+        83:'down',
+        87:'up'
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
