@@ -1,7 +1,8 @@
 // Enemies our player must avoid
 var Enemy = function (coordinate) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
+    /*
+    Declare all variables for enemy class
+    */
     this.x = -100;
     this.y = coordinate;
     this.speed = Math.floor(Math.random() * (200 - 50)) + 50; // Spawn enemies with different speeds between 50 and 200
@@ -28,23 +29,27 @@ Enemy.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+//Enemy collision triggered when a player collides with an enemy.
+//When the width/height of the enemy with an inset of 30, intersects
+//with the width/height of the player with an inset of 30
 Enemy.prototype.collision = function () {
-        if (
-            (this.x + this.width - 25) >= player.x &&
-            this.x <= (player.x + player.width - 25) &&
-            (this.y + this.height - 25) >= player.y &&
-            this.y <= (player.y + player.height - 25)) {
-            alert("GAAME OVER, YOU LOSE!");
-            player.reset();
-            player.render();
+    if (
+        (this.x + this.width - 30) >= player.x &&
+        this.x <= (player.x + player.width - 30) &&
+        (this.y + this.height - 30) >= player.y &&
+        this.y <= (player.y + player.height - 30)) {
+        alert("GAME OVER, YOU LOSE!");
+        player.reset();
+        player.render();
 
-        }
-    };
+    }
+};
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+//Player Class
 var Player = function () {
+    /*
+    Declare all variables for player class
+    */
     this.x = 210;
     this.y = 470;
     this.speed = 50;
@@ -60,75 +65,74 @@ Player.prototype.update = function (dt) {
         alert("HURRAY, YOU WIN!, CONGRATS MATE!");
         player.reset();
         player.render();
-        
+
     }
-    
+
 };
 
+//Reset player position
 Player.prototype.reset = function () {
-    //Reset player position
     this.x = 210;
     this.y = 470;
 };
 
-
-    // Draw the player on the screen, required method for game
+// Draw the player on the screen, required method for game
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.moblieInput = function(){
-    var up = document.querySelector("#up");
-    var down = document.querySelector("#down");
-    var left = document.querySelector("#left");
-    var right = document.querySelector("#right");
-    
-    up.addEventListener("click", function(){
-        if (this.y >= this.speed) {
-            this.y -= this.speed;
-            player.render();
-        }
-    });
-    down.addEventListener("click", function(){
-        if (this.y <= 450) {
-            this.y += this.speed;
-            player.render();
-        }
-    });
-    left.addEventListener("click", function(){
-        if (this.x >= this.speed) {
-            this.x -= this.speed;
-            player.render();
-        }
-    });
-    right.addEventListener("click", function(){
-        if (this.x <= 400) {
-            this.x += this.speed;
-            player.render();
-        }
-    });
-};
+/*  Start Mobile Input handling  */
+var up = document.querySelector("#up");
+var down = document.querySelector("#down");
+var left = document.querySelector("#left");
+var right = document.querySelector("#right");
+
+up.addEventListener("click", function () {
+    if (player.y >= player.speed) {
+        player.y -= player.speed;
+        player.render();
+    }
+});
+down.addEventListener("click", function () {
+    if (player.y <= 450) {
+        player.y += player.speed;
+        player.render();
+    }
+});
+left.addEventListener("click", function () {
+    if (player.x >= player.speed) {
+        player.x -= player.speed;
+        player.render();
+    }
+});
+right.addEventListener("click", function () {
+    if (player.x <= 300) {
+        player.x += player.speed;
+        player.render();
+    }
+});
+/*  Stop Mobile Input handling  */
+
 // Input handler for player, required method for game
 Player.prototype.handleInput = function (fn) {
-        if (fn == "right" && this.x <= 400) {
-            this.x += this.speed;
-            player.render();
-        } else if (fn == "left" && this.x >= this.speed) {
-            this.x -= this.speed;
-            player.render();
-        } else if (fn == "up" && this.y >= this.speed) {
-            this.y -= this.speed;
-            player.render();
-        } else if (fn == "down" && this.y <= 450) {
-            this.y += this.speed;
-            player.render();
-        }
-    Player.moblieInput();
-    };
+    if (fn == "right" && this.x <= 300) {
+        this.x += this.speed;
+        player.render();
+    } else if (fn == "left" && this.x >= this.speed) {
+        this.x -= this.speed;
+        player.render();
+    } else if (fn == "up" && this.y >= this.speed) {
+        this.y -= this.speed;
+        player.render();
+    } else if (fn == "down" && this.y <= 450) {
+        this.y += this.speed;
+        player.render();
+    }
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [new Enemy(120), new Enemy(200), new Enemy(300), new Enemy(120),new Enemy(200), new Enemy(300)];
+var allEnemies = [new Enemy(120), new Enemy(200), new Enemy(300), new Enemy(120), new Enemy(200), new Enemy(300)];
 
 // Place the player object in a variable called player
 var player = new Player;
@@ -144,8 +148,8 @@ document.addEventListener('keyup', function (e) {
         40: 'down',
         65: 'left',
         68: 'right',
-        83:'down',
-        87:'up'
+        83: 'down',
+        87: 'up'
     };
 
     player.handleInput(allowedKeys[e.keyCode]);

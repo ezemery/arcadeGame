@@ -1,19 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     text-align: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+    opacity: 1;
+    background-size: cover;
 }
 
-.game-pad{
- width:200px;
-position: relative;
-left:calc(50% - 60px);
+.game-pad {
+    width: 200px;
+    position: absolute;
+    top: 550px;
+    margin: 30px;
+    left: calc(50% - 120px);
 }
 
-.game-pad button{
-    margin:5px;
+.game-pad button {
+    margin: 5px;
 }
 
-@media only screen and (min-width:1025px){
-    .game-pad{
+@media only screen and (min-width:1025px) {
+    .game-pad {
         display: none;
     }
-} 
+}
