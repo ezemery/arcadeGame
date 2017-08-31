@@ -1,4 +1,4 @@
-# Arcade Game Project - Frogger Game
+# Frogger Game with input on mobile phones 
 ## How do I complete this project?
 Checkout the online game  [Frogger me](https://ezdevelopers.github.io/arcadeGame/).
 
@@ -17,6 +17,7 @@ Checkout the online game  [Frogger me](https://ezdevelopers.github.io/arcadeGame
 
 ### By the end:
 My game looks like this
+
 ![](https://d17h27t6h515a5.cloudfront.net/topher/2017/June/5931c951_frogger/frogger.png)
 
 The repository contains css, images, and js folders, as well as an index.html and a README.md file. Once you have downloaded the files which udacity have provided, you will have to edit app.js to build the game.
@@ -25,5 +26,4 @@ The repository contains css, images, and js folders, as well as an index.html an
 * **images/**: The images folder contains the png image files, which are used when displaying the game. The images for the player and enemy character are going to be loaded from this folder.
 * **js/**: The js folder also contains the app engine needed to run the game and a resources.js file. You do not need to edit these files.
 * **index.html**: opening index.html should load the game
-* **css/style.css**: Contains all of the CSS needed to style the page.
 * **README.md**: should contain instructions on how to load and play the game (you will need to add those instructions).
