@@ -5,19 +5,18 @@
 
 body {
     text-align: center;
-    width: 100vw;
-    height: 100vh;
-    background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
     opacity: 1;
+    background:#883a33;
     background-size: cover;
+    color: #fff;
 }
 
 .game-pad {
     width: 200px;
     position: absolute;
-    top: 550px;
+    top: 700px;
     margin: 30px;
-    left: calc(50% - 120px);
+    left: calc(50% - 130px);
 }
 
 .game-pad button {

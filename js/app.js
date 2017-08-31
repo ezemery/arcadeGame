@@ -5,7 +5,7 @@ var Enemy = function (coordinate) {
     */
     this.x = -100;
     this.y = coordinate;
-    this.speed = Math.floor(Math.random() * (200 - 50)) + 50; // Spawn enemies with different speeds between 50 and 200
+    this.speed = Math.floor(Math.random() * (300 - 100)) + 100; // Spawn enemies with different speeds between 50 and 200
     this.width = 101;
     this.height = 80;
     this.sprite = 'images/enemy-bug.png';
@@ -106,7 +106,7 @@ left.addEventListener("click", function () {
     }
 });
 right.addEventListener("click", function () {
-    if (player.x <= 300) {
+    if (player.x <= 400) {
         player.x += player.speed;
         player.render();
     }
@@ -115,7 +115,7 @@ right.addEventListener("click", function () {
 
 // Input handler for player, required method for game
 Player.prototype.handleInput = function (fn) {
-    if (fn == "right" && this.x <= 300) {
+    if (fn == "right" && this.x <= 400) {
         this.x += this.speed;
         player.render();
     } else if (fn == "left" && this.x >= this.speed) {
