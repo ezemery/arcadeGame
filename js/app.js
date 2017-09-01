@@ -55,7 +55,7 @@ var Player = function () {
     this.speed = 50;
     this.width = 80;
     this.height = 80;
-    this.sprite = 'images/char-pink-girl.png'
+    this.sprite = 'images/char-pink-girl.png';
 };
 
 // Update the players's position, required method for game
@@ -63,8 +63,8 @@ var Player = function () {
 Player.prototype.update = function (dt) {
     if (this.y < 80) {
         alert("HURRAY, YOU WIN!, CONGRATS MATE!");
-        player.reset();
-        player.render();
+        this.reset();
+        this.render();
 
     }
 
@@ -117,16 +117,16 @@ right.addEventListener("click", function () {
 Player.prototype.handleInput = function (fn) {
     if (fn == "right" && this.x <= 400) {
         this.x += this.speed;
-        player.render();
+        this.render();
     } else if (fn == "left" && this.x >= this.speed) {
         this.x -= this.speed;
-        player.render();
+        this.render();
     } else if (fn == "up" && this.y >= this.speed) {
         this.y -= this.speed;
-        player.render();
+        this.render();
     } else if (fn == "down" && this.y <= 450) {
         this.y += this.speed;
-        player.render();
+        this.render();
     }
 };
 
